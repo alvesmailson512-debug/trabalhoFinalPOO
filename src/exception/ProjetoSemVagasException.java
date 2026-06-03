@@ -1,5 +1,5 @@
 package exception;
 
-public class ProjetoSemVagasException {
+public class ProjetoSemVagasException { 
     
 }
