@@ -10,28 +10,49 @@
         <h2>CADASTRO DE USUÁRIO</h2>
         <div class="form-group">
             <label>Nome Completo:</label>
-            <input type="text" required>
+            <input type="text" id="nome" required>
         </div>
         <div class="form-group">
             <label>E-mail:</label>
-            <input type="email" required>
+            <input type="email" id="email" required>
         </div>
         <div class="form-group">
             <label>Senha:</label>
-            <input type="password" required>
+            <input type="password" id="senha" required>
         </div>
         <div class="form-group">
             <label>Tipo de Usuário:</label>
-            <select>
-                <option>Aluno</option>
-                <option>Professor</option>
-                <option>Coordenador</option>
+            <select id="tipoUsuario">
+                <option value="Aluno">Aluno</option>
+                <option value="Professor">Professor</option>
+                <option value="Coordenador">Coordenador</option>
             </select>
         </div>
         <ul class="menu-list">
-            <li><a href="LoginView.html">1 - Finalizar Cadastro</a></li>
+            <li><a href="#" onclick="realizarCadastro()">1 - Finalizar Cadastro</a></li>
             <li><a href="MainMenuView.html" class="logout">2 - Voltar</a></li>
         </ul>
     </div>
+
+    <script>
+        function realizarCadastro() {
+    
+            const nomeInput = document.getElementById('nome').value;
+            const emailInput = document.getElementById('email').value;
+            const senhaInput = document.getElementById('senha').value;
+            const tipoInput = document.getElementById('tipoUsuario').value;
+            if (!nomeInput || !emailInput || !senhaInput) {
+                alert("Por favor, preencha todos os campos do cadastro!");
+                return;
+            }
+            localStorage.setItem('cadastroEmail', emailInput);
+            localStorage.setItem('cadastroSenha', senhaInput);
+            localStorage.setItem('cadastroTipo', tipoInput);
+            localStorage.setItem('cadastroNome', nomeInput);
+
+            alert("Cadastro de " + tipoInput + " realizado com sucesso!");
+            window.location.href = "LoginView.html";
+        }
+    </script>
 </body>
-</html> // Código revisado
+</html>

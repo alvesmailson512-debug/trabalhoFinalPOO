@@ -10,18 +10,50 @@
         <h2>LOGIN</h2>
         <div class="form-group">
             <label>E-mail:</label>
-            <input type="email" required>
+            <input type="email" id="loginEmail" required>
         </div>
         <div class="form-group">
             <label>Senha:</label>
-            <input type="password" required>
+            <input type="password" id="loginSenha" required>
         </div>
         <ul class="menu-list">
-            <li><a href="DashboardAlunoView.html">1 - Entrar (Como Aluno)</a></li>
-            <li><a href="DashboardProfessorView.html">1 - Entrar (Como Professor)</a></li>
-            <li><a href="DashboardCoordenadorView.html">1 - Entrar (Como Coordenador)</a></li>
+            <li><a href="#" onclick="realizarLogin()">1 - Entrar no Sistema</a></li>
             <li><a href="MainMenuView.html" class="logout">2 - Voltar</a></li>
         </ul>
     </div>
+
+    <script>
+        function realizarLogin() {
+    
+            const emailDigitado = document.getElementById('loginEmail').value;
+            const senhaDigitada = document.getElementById('loginSenha').value;
+
+            const emailCadastrado = localStorage.getItem('cadastroEmail');
+            const senhaCadastrada = localStorage.getItem('cadastroSenha');
+            const tipoUsuario = localStorage.getItem('cadastroTipo');
+
+            if (!emailCadastrado) {
+                alert("Nenhum usuário cadastrado no sistema! Vá para a tela de Cadastro primeiro.");
+                window.location.href = "CadastroView.html";
+                return;
+            }
+
+            if (emailDigitado !== emailCadastrado || senhaDigitada !== senhaCadastrada) {
+                alert("E-mail ou Senha incorretos! Tente novamente.");
+                return;
+            }
+            alert("Login realizado com sucesso como " + tipoUsuario + "!");
+            
+            if (tipoUsuario === "Aluno") {
+                window.location.href = "DashboardAlunoView.html";
+            } else if (tipoUsuario === "Professor") {
+                window.location.href = "DashboardProfessorView.html";
+            } else if (tipoUsuario === "Coordenador") {
+                window.location.href = "DashboardCoordenadorView.html";
+            } else {
+                window.location.href = "MainMenuView.html";
+            }
+        }
+    </script>
 </body>
 </html>

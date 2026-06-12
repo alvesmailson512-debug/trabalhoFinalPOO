@@ -2,26 +2,27 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Relatórios e Estatísticas</title>
+    <title>Gerar Relatórios</title>
     <link rel="stylesheet" href="Style.css">
 </head>
 <body>
     <div class="container">
-        <h2>RELATÓRIOS E ESTATÍSTICAS GERAIS</h2>
-        <div class="report-box">
-            <h3>Estatísticas da Plataforma</h3>
-            <p>Total de Projetos Cadastrados: 12</p>
-            <p>Total de Participantes Ativos: 34</p>
-            <p>Professores Orientadores: 8</p>
-        </div>
-        <div class="report-box">
-            <h3>Projetos mais Ativos</h3>
-            <p>1º lugar: Robótica Educacional (5 alunos)</p>
-            <p>2º lugar: IA aplicada à educação (3 alunos)</p>
-        </div>
+        <h2>GERAR RELATÓRIOS</h2>
+        <p style="text-align: center; color: #666; margin-bottom: 20px;">Selecione o tipo de relatório desejado</p>
+        
         <ul class="menu-list">
-            <li><a href="DashboardCoordenadorView.html" class="logout">1 - Voltar</a></li>
+            <li><a href="#" onclick="gerar('Relatório de Frequência dos Bolsistas')">1 - Relatório de Frequência</a></li>
+            <li><a href="#" onclick="gerar('Relatório de Desempenho e Notas dos Projetos')">2 - Relatório de Desempenho</a></li>
+            <li><a href="#" onclick="gerar('Estatísticas Gerais de Projetos Ativos')">3 - Estatísticas do Semestre</a></li>
+            <li><a href="DashboardProfessorView.html" class="logout">4 - Voltar ao Menu</a></li>
         </ul>
     </div>
+
+    <script>
+        function gerar(tipoRelatorio) {
+            alert("Processando... O arquivo '" + tipoRelatorio + ".pdf' foi gerado e baixado com sucesso!");
+            window.location.href = "DashboardProfessorView.html";
+        }
+    </script>
 </body>
 </html>

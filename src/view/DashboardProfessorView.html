@@ -8,13 +8,20 @@
 <body>
     <div class="container">
         <h2>MENU DO PROFESSOR</h2>
+        <p style="text-align: center; color: #666;">Bem-vindo, Professor(a) <strong id="nomeProf"></strong>!</p>
+        
         <ul class="menu-list">
-            <li><a href="ProjetoView.html">1 - Criar novo projeto</a></li>
-            <li><a href="ProjetoView.html">2 - Editar projeto existente</a></li>
-            <li><a href="ProjetoView.html">3 - Visualizar inscritos</a></li>
-            <li><a href="NotificacaoView.html">4 - Enviar notificações</a></li>
-            <li><a href="MainMenuView.html" class="logout">5 - Sair</a></li>
+            <li><a href="#">1 - Criar Novo Projeto</a></li>
+            <li><a href="#">2 - Gerenciar Meus Projetos</a></li>
+            <li><a href="#">3 - Avaliar Alunos</a></li>
+            <li><a href="RelatorioView.html">4 - Gerar Relatórios</a></li>
+            <li><a href="LoginView.html" class="logout">5 - Sair</a></li>
         </ul>
     </div>
+
+    <script>
+        const nome = localStorage.getItem('cadastroNome');
+        if (nome) document.getElementById('nomeProf').innerText = nome;
+    </script>
 </body>
 </html>
