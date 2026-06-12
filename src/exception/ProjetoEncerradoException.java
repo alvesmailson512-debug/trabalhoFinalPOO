@@ -1,5 +1,9 @@
 package exception;
 
-public class ProjetoEncerradoException {
-    
+public class ProjetoEncerradoException extends Exception {
+
+    public ProjetoEncerradoException(String mensagem) {
+        super(mensagem);
+    }
+
 }

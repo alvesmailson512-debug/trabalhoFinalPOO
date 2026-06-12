@@ -1,22 +1,44 @@
 package model;
 
-public class Professor extends Usuario {
+import java.util.ArrayList;
+import java.util.List;
 
-    private String especialidade;
+import interfaces.Autenticavel;
+import interfaces.Notificavel;
 
-    public Professor() {
+public class Professor extends Usuario
+        implements Autenticavel, Notificavel {
+
+    private List<Projeto> projetosOrientados;
+
+    public Professor(String id, String nome, String email, String senha) {
+
+        super(id, nome, email, senha);
+
+        this.projetosOrientados = new ArrayList<>();
     }
 
-    public Professor(String nome, String email, String senha, String especialidade) {
-        super(nome, email, senha);
-        this.especialidade = especialidade;
+    @Override
+    public void exibirMenu() {
+        System.out.println("Menu do Professor");
     }
 
-    public String getEspecialidade() {
-        return especialidade;
+    @Override
+    public boolean autenticar(String email, String senha) {
+        return getEmail().equals(email)
+                && getSenha().equals(senha);
     }
 
-    public void setEspecialidade(String especialidade) {
-        this.especialidade = especialidade;
+    @Override
+    public void receberNotificacao(String mensagem) {
+        System.out.println("Notificação: " + mensagem);
+    }
+
+    public void adicionarProjeto(Projeto projeto) {
+        projetosOrientados.add(projeto);
+    }
+
+    public List<Projeto> getProjetosOrientados() {
+        return projetosOrientados;
     }
 }

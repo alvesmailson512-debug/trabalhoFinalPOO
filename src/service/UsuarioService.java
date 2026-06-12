@@ -1,16 +1,68 @@
 package service;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import model.Usuario;
+
 public class UsuarioService {
 
-    public void cadastrarNovoProjeto(String titulo, String area, String professor, int vagas, String descricao) {
-        System.out.println("Projeto " + titulo + " pré-registrado com sucesso.");
+    private List<Usuario> usuarios;
+
+    public UsuarioService() {
+        usuarios = new ArrayList<>();
     }
 
-    public boolean removerProjetoExistente(int idProjeto) {
-        return true;
+    public void cadastrarUsuario(Usuario usuario) {
+        usuarios.add(usuario);
     }
 
-    public void enviarNotificacaoSistema(String mensagem) {
-        System.out.println("[NOTIFICAÇÃO]: " + mensagem);
+    public List<Usuario> listarUsuarios() {
+        return usuarios;
+    }
+
+    public Usuario buscarPorEmail(String email) {
+
+        for (Usuario usuario : usuarios) {
+
+            if (usuario.getEmail().equalsIgnoreCase(email)) {
+                return usuario;
+            }
+
+        }
+
+        return null;
+    }
+
+    public Usuario buscarPorId(String id) {
+
+        for (Usuario usuario : usuarios) {
+
+            if (usuario.getId().equals(id)) {
+                return usuario;
+            }
+
+        }
+
+        return null;
+    }
+
+    public void removerUsuario(Usuario usuario) {
+        usuarios.remove(usuario);
+    }
+
+    public Usuario login(String email, String senha) {
+
+        for (Usuario usuario : usuarios) {
+
+            if (usuario.getEmail().equalsIgnoreCase(email)
+                    && usuario.getSenha().equals(senha)) {
+
+                return usuario;
+            }
+
+        }
+
+        return null;
     }
 }

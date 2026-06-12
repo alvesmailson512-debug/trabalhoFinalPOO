@@ -1,14 +1,22 @@
 package service;
 
+import java.util.List;
+
+import model.Projeto;
+
 public class RelatorioService {
 
-    public void gerarRelatorioGeral() {
-        System.out.println("====== RELATÓRIO GERAL DE PROJETOS ======");
-        System.out.println("Status: Todos os sistemas operando normalmente.");
-    }
+    public void gerarRelatorioProjetos(List<Projeto> projetos) {
 
-    public void exibirEstatisticasGerais() {
-        System.out.println("====== ESTATÍSTICAS DO SISTEMA ======");
-        System.out.println("Projetos monitorados ativos.");
+        System.out.println("===== RELATÓRIO =====");
+
+        for (Projeto projeto : projetos) {
+
+            System.out.println("Título: " + projeto.getTitulo());
+            System.out.println("Área: " + projeto.getAreaPesquisa());
+            System.out.println("Status: " + projeto.getStatus());
+
+            System.out.println("------------------");
+        }
     }
 }

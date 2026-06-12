@@ -1,22 +1,22 @@
 package model;
 
-public class Coordenador extends Usuario {
+import interfaces.Autenticavel;
 
-    private String setor;
+public class Coordenador extends Usuario
+        implements Autenticavel {
 
-    public Coordenador() {
+    public Coordenador(String id, String nome, String email, String senha) {
+        super(id, nome, email, senha);
     }
 
-    public Coordenador(String nome, String email, String senha, String setor) {
-        super(nome, email, senha);
-        this.setor = setor;
+    @Override
+    public void exibirMenu() {
+        System.out.println("Menu do Coordenador");
     }
 
-    public String getSetor() {
-        return setor;
-    }
-
-    public void setSetor(String setor) {
-        this.setor = setor;
+    @Override
+    public boolean autenticar(String email, String senha) {
+        return getEmail().equals(email)
+                && getSenha().equals(senha);
     }
 }

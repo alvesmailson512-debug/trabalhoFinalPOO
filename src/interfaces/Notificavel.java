@@ -1,5 +1,7 @@
 package interfaces;
 
-public class Notificavel {
-    
+public interface Notificavel {
+
+    void receberNotificacao(String mensagem);
+
 }

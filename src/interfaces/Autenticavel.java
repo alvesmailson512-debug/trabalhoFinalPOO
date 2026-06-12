@@ -1,5 +1,7 @@
 package interfaces;
 
-public class Autenticavel {
-    
+public interface Autenticavel {
+
+    boolean autenticar(String email, String senha);
+
 }
