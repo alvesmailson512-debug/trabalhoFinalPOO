@@ -1,0 +1,17 @@
+[33mcommit 74210187c5fd74a53f264dfe9b82c87dcf5d597a[m
+Author: alvesmailson512-debug <alvesmailson512@gmail.com>
+Date:   Fri Jun 12 12:20:45 2026 -0300
+
+    feat: adiciona fluxo completo e novas telas de dashboard
+
+[33mcommit 379d8b4c534e1c498d49a01eb35791c487aeec46[m
+Author: alvesmailson512-debug <alvesmailson512@gmail.com>
+Date:   Fri Jun 12 02:28:02 2026 -0300
+
+    style: atualizando organizacao visual dos arquivos fonte
+
+[33mcommit 15a9dc85be3863dc231bf0f9bb9c6aabb72bc12f[m[33m ([m[1;31morigin/ajustes-view-service[m[33m)[m
+Author: alvesmailson512-debug <alvesmailson512@gmail.com>
+Date:   Thu Jun 11 18:47:28 2026 -0300
+
+    fix: atualizando views e services sem erros

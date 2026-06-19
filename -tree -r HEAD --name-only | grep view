@@ -1,0 +1,25 @@
+[33m477dbfc[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Atualização das classes de modelo
+.vscode/settings.json
+src/Application/Main.java
+src/exception/AcessoNegadoException.java
+src/exception/ProjetoEncerradoException.java
+src/exception/ProjetoSemVagasException.java
+src/exception/UsuarioNaoEncontradoException.java
+src/interfaces/Autenticavel.java
+src/interfaces/Notificavel.java
+src/model/Aluno.java
+src/model/Coordenador.java
+src/model/Disciplina.java
+src/model/Notificacao.java
+src/model/Professor.java
+src/model/Projeto.java
+src/model/Relatorio.java
+src/model/StatusProjeto.java
+src/model/StatusRelatorio.java
+src/model/Turma.java
+src/model/Usuario.java
+src/service/AlunoServico.java
+src/service/NotificacaoService.java
+src/service/ProjetoService.java
+src/service/RelatorioService.java
+src/service/UsuarioService.java

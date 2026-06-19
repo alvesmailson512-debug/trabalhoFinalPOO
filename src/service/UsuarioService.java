@@ -1,34 +1,33 @@
 package service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import model.Usuario;
+import repository.UsuarioRepository;
 
 public class UsuarioService {
 
-    private List<Usuario> usuarios;
+    private UsuarioRepository repository;
 
     public UsuarioService() {
-        usuarios = new ArrayList<>();
+        repository = new UsuarioRepository();
     }
 
     public void cadastrarUsuario(Usuario usuario) {
-        usuarios.add(usuario);
+        repository.salvar(usuario);
     }
 
     public List<Usuario> listarUsuarios() {
-        return usuarios;
+        return repository.listarTodos();
     }
 
     public Usuario buscarPorEmail(String email) {
 
-        for (Usuario usuario : usuarios) {
+        for (Usuario usuario : repository.listarTodos()) {
 
             if (usuario.getEmail().equalsIgnoreCase(email)) {
                 return usuario;
             }
-
         }
 
         return null;
@@ -36,33 +35,31 @@ public class UsuarioService {
 
     public Usuario buscarPorId(String id) {
 
-        for (Usuario usuario : usuarios) {
+        for (Usuario usuario : repository.listarTodos()) {
 
             if (usuario.getId().equals(id)) {
                 return usuario;
             }
-
         }
 
         return null;
     }
 
-    public void removerUsuario(Usuario usuario) {
-        usuarios.remove(usuario);
-    }
-
     public Usuario login(String email, String senha) {
 
-        for (Usuario usuario : usuarios) {
+        for (Usuario usuario : repository.listarTodos()) {
 
             if (usuario.getEmail().equalsIgnoreCase(email)
                     && usuario.getSenha().equals(senha)) {
 
                 return usuario;
             }
-
         }
 
         return null;
+    }
+
+    public void removerUsuario(Usuario usuario) {
+        repository.remover(usuario);
     }
 }

@@ -3,12 +3,13 @@ package Application;
 import java.time.LocalDate;
 import java.util.Scanner;
 
+import Controller.NotificacaoController;
+import Controller.ProjetoController;
+import Controller.UsuarioController;
+
 import model.Aluno;
 import model.Professor;
 import model.Projeto;
-import service.NotificacaoService;
-import service.ProjetoService;
-import service.UsuarioService;
 
 public class Main {
 
@@ -16,8 +17,9 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        UsuarioService usuarioService = new UsuarioService();
-        ProjetoService projetoService = new ProjetoService();
+        UsuarioController usuarioController = new UsuarioController();
+        ProjetoController projetoController = new ProjetoController();
+        NotificacaoController notificacaoController = new NotificacaoController();
 
         int opcao;
 
@@ -57,48 +59,49 @@ public class Main {
                             senhaAluno
                     );
 
-                    usuarioService.cadastrarUsuario(aluno);
+                    usuarioController.cadastrarUsuario(aluno);
 
                     System.out.println("Aluno cadastrado com sucesso!");
                     break;
 
                 case 2:
 
-    System.out.print("Título do projeto: ");
-    String titulo = scanner.nextLine();
+                    System.out.print("Título do projeto: ");
+                    String titulo = scanner.nextLine();
 
-    System.out.print("Descrição do projeto: ");
-    String descricao = scanner.nextLine();
+                    System.out.print("Descrição do projeto: ");
+                    String descricao = scanner.nextLine();
 
-    System.out.print("Área de pesquisa: ");
-    String area = scanner.nextLine();
+                    System.out.print("Área de pesquisa: ");
+                    String area = scanner.nextLine();
 
-    Professor professor = new Professor(
-            "P1",
-            "Professor Responsável",
-            "prof@email.com",
-            "123"
-    );
+                    Professor professor = new Professor(
+                            "P1",
+                            "Professor Responsável",
+                            "prof@email.com",
+                            "123"
+                    );
 
-    Projeto projeto = new Projeto(
-            titulo,
-            descricao,
-            area,
-            professor,
-            LocalDate.now(),
-            LocalDate.now().plusMonths(6),
-            10
-    );
+                    Projeto projeto = new Projeto(
+                            titulo,
+                            descricao,
+                            area,
+                            professor,
+                            LocalDate.now(),
+                            LocalDate.now().plusMonths(6),
+                            10
+                    );
 
-    projetoService.adicionarProjeto(projeto);
+                    projetoController.adicionarProjeto(projeto);
 
-    System.out.println("Projeto criado com sucesso!");
-    break;
+                    System.out.println("Projeto criado com sucesso!");
+                    break;
+
                 case 3:
 
                     System.out.println("\n=== USUÁRIOS CADASTRADOS ===");
 
-                    usuarioService.listarUsuarios().forEach(usuario ->
+                    usuarioController.listarUsuarios().forEach(usuario ->
                             System.out.println(usuario.getNome()));
 
                     break;
@@ -107,7 +110,7 @@ public class Main {
 
                     System.out.println("\n=== PROJETOS CADASTRADOS ===");
 
-                    projetoService.listarProjetos().forEach(p -> {
+                    projetoController.listarProjetos().forEach(p -> {
                         System.out.println("Título: " + p.getTitulo());
                         System.out.println("Área: " + p.getAreaPesquisa());
                         System.out.println("Status: " + p.getStatus());
@@ -121,8 +124,9 @@ public class Main {
                     System.out.print("Digite a mensagem: ");
                     String mensagem = scanner.nextLine();
 
-                    NotificacaoService.getInstancia()
-                            .enviarNotificacao(mensagem);
+                    notificacaoController.enviarNotificacao(mensagem);
+
+                    System.out.println("Notificação enviada!");
 
                     break;
 

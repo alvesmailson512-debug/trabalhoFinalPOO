@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teste</title>
+</head>
+<body>
+
+    <h1>Teste de Integração</h1>
+
+    <input type="text" id="nome">
+
+    <button onclick="enviar()">
+        Enviar
+    </button>
+
+    <script>
+        function enviar() {
+
+            const nome =
+                document.getElementById("nome").value;
+
+            fetch("http://localhost:8080/teste?nome=" + nome)
+                .then(response => response.text())
+                .then(data => alert(data));
+        }
+    </script>
+
+</body>
+</html>
